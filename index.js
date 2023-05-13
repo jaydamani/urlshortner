@@ -40,14 +40,14 @@ app.post(
     });
   },
   function (req, res) {
-    let short_url = urlMap.push(res.url) - 1;
+    let short_url = urlMap.push(res.url);
     res.json({ orignal_url: res.url.toString(), short_url });
   }
 );
 
 app.get("/api/shorturl/:shorturl", function (req, res) {
-  if (req.params.shorturl < urlMap.length)
-    res.redirect(urlMap[req.params.shorturl]);
+  if (req.params.shorturl <= urlMap.length)
+    res.redirect(urlMap[req.params.shorturl - 1]);
 });
 
 // Your first API endpoint
