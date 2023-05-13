@@ -41,7 +41,7 @@ app.post(
   },
   function (req, res) {
     let short_url = urlMap.push(res.url);
-    res.json({ orignal_url: res.url.toString(), short_url });
+    res.json({ original_url: res.url.toString(), short_url });
   }
 );
 
